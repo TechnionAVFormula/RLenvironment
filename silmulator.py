@@ -478,6 +478,10 @@ class CarRacing(gym.Env, EzPickle):
         self.score_label.text = "%04i" % self.reward
         #self.score_label.draw()
 
+# class advCarRacing(CarRacing):
+#     def __init
+#     pass
+
 
 if __name__=="__main__":
     from pyglet.window import key
@@ -509,6 +513,7 @@ if __name__=="__main__":
         steps = 0
         restart = False
         while True:
+            # a = agent(observation)
             s, r, done, info = env.step(a)
             total_reward += r
             #print("\naction " + str(["{:+0.2f}".format(x) for x in a]))
@@ -521,6 +526,7 @@ if __name__=="__main__":
                 plt.savefig("test.jpeg")
             steps += 1
             isopen = env.render()
+            # print(env.car.wheels[2].gas)
             if done or restart or isopen == False:
                 break
     env.close()
